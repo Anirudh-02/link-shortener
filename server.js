@@ -40,7 +40,7 @@ app.post('/shortUrlDetails', async (req, res) => {
 
 app.get('/:shortUrl', async (req, res) => {
     try {
-        if (!req.params.shortUrl) return
+        if (!req.params.shortUrl || req.params.shortUrl == 'favicon.ico') return
         console.log(req.params.shortUrl)
         if (!req.params.shortUrl) return
         let urlEntryDoc = await shortUrlModel.findOne({ shortUrl: req.params.shortUrl })
