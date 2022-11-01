@@ -35,7 +35,7 @@ btnArray.forEach(button => {
         }
         if (button.classList.contains('GetClicks')) {
             if (!inpGetClicks.value) return
-            fetch('http://localhost:4000/shortUrlDetails', {
+            fetch(`${window.location.href}shortUrlDetails`, {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
