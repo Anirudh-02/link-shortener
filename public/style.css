@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+fieldset > input {
+    outline: none;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: white;
+    min-height: 2.3rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    filter: brightness(120%);
+}
+
+button:active {
+    filter: brightness(90%);
+    scale: 95%;
+}
+
+dialog {
+    min-width: 50vw;
+    position: relative;
+    height: 3rem;
+    overflow-y: hidden;
+}
+
+dialog > button {
+    position: absolute;
+    right: 1rem;
+    bottom: 15%;
+    background-color: darkgray;
+    min-height: fit-content;
+    border-radius: 50%/50%;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(3px);
+}

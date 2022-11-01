@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Shortener</title>
+    <link rel="stylesheet" href="style.css">
+    <script async defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>Enter URL for shortening</legend>
+            <input id="inpShortenUrl" type="text" placeholder="Enter full URL for shortening">
+        </fieldset>
+        <button class="btn ShortenUrl">Get short URL</button>
+        <fieldset>
+            <legend>Find short URL clicks</legend>
+            <input id="inpGetClicks" type="text" placeholder="Enter short URL code">
+        </fieldset>
+        <button class="btn GetClicks">Get clicks</button>
+    </div>
+    <dialog id="short_url_clicks">
+        <span><a id="shortUrl" target="_blank"></a></span><button id="closeModal">x</button>
+    </dialog>
+</body>
+</html>
