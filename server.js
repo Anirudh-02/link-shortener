@@ -1,10 +1,11 @@
 const express = require('express')
 const { default: mongoose } = require('mongoose')
 const shortUrlModel = require('./models/shortUrls')
+require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT || 4000
 
-mongoose.connect('mongodb://localhost:27017/urlShortener')
+mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: true }))
