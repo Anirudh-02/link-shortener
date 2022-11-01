@@ -15,7 +15,7 @@ btnArray.forEach(button => {
     button.addEventListener('click', () => {
         if (button.classList.contains('ShortenUrl')) {
             if (!inpShortenURl.value) return
-            fetch('http://localhost:4000/shortenUrl', {
+            fetch(`${window.location.href}shortenUrl`, {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,8 +28,8 @@ btnArray.forEach(button => {
                         dialog.textContent == data.shortUrl
                         return
                     }
-                    document.getElementById('shortUrl').setAttribute('href', `http://localhost:4000/${data.shortUrl}`)
-                    document.getElementById('shortUrl').textContent = `http://localhost:4000/${data.shortUrl}`
+                    document.getElementById('shortUrl').setAttribute('href', `${window.location.href}${data.shortUrl}`)
+                    document.getElementById('shortUrl').textContent = `${window.location.href}${data.shortUrl}`
                 })
                 .catch((err) => console.error(err))
         }
