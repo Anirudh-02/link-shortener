@@ -3,12 +3,18 @@ let buttons = document.getElementsByClassName('btn')
 close = document.getElementById('closeModal')
 inpShortenURl = document.getElementById('inpShortenUrl')
 inpGetClicks = document.getElementById('inpGetClicks')
+shortUrl = document.getElementById('shortUrl')
+copyBtn = document.getElementById('copy')
 
 btnArray = [...buttons]
 
 dialog.addEventListener('close', () => {
     dialog.firstChild.textContent = ''
     document.getElementById('shortUrl').textContent = ''
+})
+
+copyBtn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(shortUrl.textContent)
 })
 
 btnArray.forEach(button => {
@@ -25,11 +31,11 @@ btnArray.forEach(button => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.shortUrl == 'Url is invalid') {
-                        dialog.textContent == data.shortUrl
+                        dialog.textContent = data.shortUrl
                         return
                     }
-                    document.getElementById('shortUrl').setAttribute('href', `${window.location.href}${data.shortUrl}`)
-                    document.getElementById('shortUrl').textContent = `${window.location.href}${data.shortUrl}`
+                    shortUrl.textContent = `${window.location.href}${data.shortUrl}`
+                    shortUrl.setAttribute('href', `${window.location.href}${data.shortUrl}`)
                 })
                 .catch((err) => console.error(err))
         }
@@ -48,13 +54,14 @@ btnArray.forEach(button => {
                         dialog.textContent = data.clicks
                         return
                     }
-                    dialog.firstChild.textContent = `Number of clicks on code ${inpGetClicks.value} : ${data.clicks}`
+                    dialog.textContent = `Number of clicks on code ${inpGetClicks.value} : ${data.clicks}`
                 })
                 .catch((err) => console.error(err))
         }
         dialog.showModal()
     })    
 });
+
 
 
 
