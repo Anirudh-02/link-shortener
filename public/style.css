@@ -48,9 +48,18 @@ dialog {
     overflow-y: hidden;
 }
 
-dialog > button {
+dialog > #closeModal {
     position: absolute;
     right: 1rem;
+    bottom: 15%;
+    background-color: darkgray;
+    min-height: fit-content;
+    border-radius: 50%/50%;
+}
+
+dialog > #copy {
+    position: absolute;
+    right: 3rem;
     bottom: 15%;
     background-color: darkgray;
     min-height: fit-content;
